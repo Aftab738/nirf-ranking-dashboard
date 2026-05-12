@@ -65,12 +65,30 @@ The dashboard includes multiple visualization techniques for better analysis and
 
 ---
 
+## Dashboard Screenshots
+
+### Dashboard Overview
+![Dashboard Overview](screenshots/dashboard-overview.png)
+
+### Score Analysis
+![Score Analysis](screenshots/score-analysis.png)
+
+### Ranking Trends
+![Ranking Trends](screenshots/ranking-trends.png)
+
+### State Analysis
+![State Analysis](screenshots/state-analysis.png)
+
+
+---
+
 ## Project Structure
 
 ```bash
 nirf-ranking-dashboard/
 │
 ├── data/
+├── screenshots/
 ├── app.py
 ├── preprocessing.py
 ├── requirements.txt

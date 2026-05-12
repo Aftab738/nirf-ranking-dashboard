@@ -485,7 +485,15 @@ with tab_overview:
         st.divider()
         st.subheader(f"🏆 Top {top_n} Institutes by Overall Score")
         
-        top_n_df = filtered_df.sort_values("Score", ascending=False).drop_duplicates("Institute Name").head(top_n).reset_index(drop=True).copy()
+        # Dynamically use the latest available year if "All Years" is selected
+        top_n_df = filtered_df.copy()
+        if selected_year == "All Years" and not top_n_df.empty:
+            latest_year = top_n_df["Year"].max()
+            top_n_df = top_n_df[top_n_df["Year"] == latest_year]
+        
+        top_n_df["Display_Alias"] = top_n_df["Institute Name"].apply(apply_short_alias)
+        top_n_df = top_n_df.sort_values("Score", ascending=False).drop_duplicates("Display_Alias").head(top_n).reset_index(drop=True)
+        
         if not top_n_df.empty:
             top_n_df["Chart_Rank"] = range(1, len(top_n_df) + 1)
             top_n_df["Y_Label"] = top_n_df.apply(lambda r: ranked_label(r["Chart_Rank"], r["Institute Name"]), axis=1)
@@ -515,7 +523,10 @@ with tab_state:
             st.plotly_chart(fig, use_container_width=True)
         with sr:
             st.subheader(f"Avg Score (Top {top_n} Institutes)")
-            top_state_df = filtered_df.sort_values("Score", ascending=False).drop_duplicates("Institute Name").head(top_n)
+            # Consistently prioritize latest year and unique institutes using aliases for state-wise top N
+            top_state_df = filtered_df.copy()
+            top_state_df["Display_Alias"] = top_state_df["Institute Name"].apply(apply_short_alias)
+            top_state_df = top_state_df.sort_values(["Year", "Score"], ascending=[False, False]).drop_duplicates("Display_Alias").head(top_n)
             avg = top_state_df.groupby("State")["Score"].mean().reset_index().sort_values("Score", ascending=True)
             fig = px.bar(avg, x="Score", y="State", orientation="h", color="Score", color_continuous_scale="Blues", text="Score")
             fig.update_layout(
