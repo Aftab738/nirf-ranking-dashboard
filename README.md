@@ -2,7 +2,7 @@
 
 This project focuses on analyzing the NIRF (National Institutional Ranking Framework) rankings of Indian universities using data visualization and interactive dashboard techniques. The dashboard helps users understand ranking trends, institutional performance, score distribution, and relationships between different ranking parameters through interactive charts and visual analysis.
 
-The project was developed using Python along with libraries such as Pandas, Plotly, and Streamlit. By combining multiple years of ranking data, the dashboard provides a simple and user-friendly way to explore institutional rankings and performance patterns.
+The project was developed using Python along with libraries such as Pandas, Plotly, Streamlit, and NumPy. By combining ranking data from multiple years, the dashboard provides a simple and user-friendly way to explore institutional rankings and performance patterns.
 
 
 ---
@@ -10,7 +10,7 @@ The project was developed using Python along with libraries such as Pandas, Plot
 ## Features
 
 - Interactive dashboard for NIRF ranking analysis
-- Year-wise and state-wise filtering options
+- Year-wise and state-wise filtering
 - Visualization of top-ranked institutions
 - Historical ranking trend analysis
 - Correlation analysis between ranking parameters
@@ -26,7 +26,8 @@ The project was developed using Python along with libraries such as Pandas, Plot
 - **Python** – Core programming language used for development
 - **Pandas** – Used for data cleaning, preprocessing, and analysis
 - **Plotly** – Used for creating interactive charts and visualizations
-- **Streamlit** – Used for building the interactive web dashboard
+- **Streamlit** – Used for building the interactive dashboard
+- **NumPy** – Used for numerical operations and data handling
 
 
 ---
@@ -71,8 +72,50 @@ nirf-ranking-dashboard/
 │
 ├── data/
 ├── app.py
-├── analysis.py
 ├── preprocessing.py
 ├── requirements.txt
 └── README.md
 ```
+
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/nirf-ranking-dashboard.git
+```
+
+Move into the project folder:
+
+```bash
+cd nirf-ranking-dashboard
+```
+
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+
+---
+
+## Run the Project
+
+Start the Streamlit application using:
+
+```bash
+streamlit run app.py
+```
+
+The dashboard will open automatically in your browser.
+
+
+---
+
+## Conclusion
+
+This project demonstrates how data visualization can simplify complex educational ranking data and present meaningful insights through an interactive dashboard. The system provides an easy and effective way to explore NIRF rankings and understand institutional performance across different parameters.
