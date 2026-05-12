@@ -70,8 +70,11 @@ The dashboard includes multiple visualization techniques for better analysis and
 ### Dashboard Overview
 ![Dashboard Overview](screenshots/dashboard-overview.png)
 
-### Score Analysis
-![Score Analysis](screenshots/score-analysis.png)
+### Performance Overview
+![Performance Overview](screenshots/performance-overview.png)
+
+### Correlation Analysis
+![Correlation Analysis](screenshots/correlation-analysis.png)
 
 ### Ranking Trends
 ![Ranking Trends](screenshots/ranking-trends.png)
